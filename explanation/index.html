@@ -4,23 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Explicación del método - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -30,17 +30,17 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Introducción</a>
+                            </li>
                             <li class="navitem active">
-                                <a href="." class="nav-link">Introducción</a>
+                                <a href="./" class="nav-link">Explicación del método</a>
                             </li>
                             <li class="navitem">
-                                <a href="explanation/" class="nav-link">Explicación del método</a>
+                                <a href="../reference/" class="nav-link">Reference</a>
                             </li>
                             <li class="navitem">
-                                <a href="reference/" class="nav-link">Reference</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="tutorials/" class="nav-link">Ejemplo de uso</a>
+                                <a href="../tutorials/" class="nav-link">Ejemplo de uso</a>
                             </li>
                         </ul>
 
@@ -51,12 +51,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href=".." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="explanation/" class="nav-link">
+                                <a rel="next" href="../reference/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -78,7 +78,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#introduccion" class="nav-link">Introducción</a>
+            <li class="nav-item" data-level="1"><a href="#explicacion-del-metodo" class="nav-link">Explicación del método</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -87,15 +87,20 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="introduccion">Introducción</h1>
-<p>En esta tarea se estudia la aplicación de la <strong>cuadratura Gaussiana</strong> 
-para calcular la integral:</p>
+<h1 id="explicacion-del-metodo">Explicación del método</h1>
+<p>La cuadratura Gaussiana consiste en aproximar una integral de la forma:</p>
 <p>[
-I = \int_1^3 \big( x^6 - x^2 \sin(2x) \big)\, dx
+\int_a^b f(x)\, dx \approx \sum_{k=1}^N w_k f(x_k)
 ]</p>
-<p>El objetivo es implementar el método de <strong>Gauss-Legendre</strong> en Python,
-probar distintos valores de (N) y determinar a partir de qué orden 
-se alcanza el resultado correcto (dentro de la tolerancia numérica).</p></div>
+<p>donde:
+- (x_k) son las raíces de los polinomios de Legendre (P_N(x)).
+- (w_k) son los pesos asociados.</p>
+<p><strong>Propiedades importantes:</strong>
+- Exactitud para polinomios de grado hasta (2N-1).
+- Los puntos de muestreo no son equidistantes.
+- La convergencia es muy rápida.</p>
+<p>En nuestro caso, usamos las funciones <code>np.polynomial.legendre.leggauss</code>
+para obtener directamente (x_k, w_k).</p></div>
             </div>
         </div>
 
@@ -103,14 +108,14 @@ se alcanza el resultado correcto (dentro de la tolerancia numérica).</p></div>
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -175,8 +180,3 @@ se alcanza el resultado correcto (dentro de la tolerancia numérica).</p></div>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.5.3
-Build Date UTC : 2025-09-28 09:14:54.997203+00:00
--->
